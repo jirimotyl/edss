@@ -8,7 +8,8 @@ The functioning of the calculator was validated on a large dataset of almost 110
 <h2>Install</h2>
 You can install the package by using devtools library. Simply run this code:
 
-```r
+
+```R
 library(devtools) #make sure that the library is installed
 install_github("jirimotyl/edss")
 ```
