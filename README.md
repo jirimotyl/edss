@@ -7,10 +7,10 @@ The functioning of the calculator was validated on a large dataset of almost 110
 
 <h2>Install</h2>
 You can install the package by using devtools library. Simply run this code:
-```R
+```r
 library(devtools) #make sure that the library is installed
 install_github("jirimotyl/edss")
 ```
 
 <h2>Acknowledgements</h2>
-I would like to thank github.com/adobrasinovic for the inspiration to write this script and for the clear overview of the EDSS conditions that made it much easier to write this package. Also I would like to thank AI tools for final debugging of the code.
+I would like to thank <a>github.com/adobrasinovic</a> for the inspiration to write this script and for the clear overview of the EDSS conditions that made it much easier to write this package. Also I would like to thank AI tools for final debugging of the code.
