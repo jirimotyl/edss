@@ -1,4 +1,4 @@
-EDSS Calculator for R
+<h1>EDSS Calculator for R</h1>
 
 R Package EDSScalaculator that calculates total EDSS score from functional subsystem subscores 
 
