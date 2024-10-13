@@ -1,0 +1,16 @@
+Package: EDSScalculator
+Type: Package
+Title: EDSS Calculator that calculates total EDSS score from functional subsystem subscores 
+Version: 0.1.0
+Authors@R: person("Jiri", "Motyl", email = "jiri.motyl@vfn.cz",
+  role = c("aut", "cre")
+  comment = c(ORCID = "0000-0002-7315-1251")
+)
+Maintainer: Jiri Motyl, PhD <jiri.motyl@vfn.cz>
+Description: Expanded Disability Status Scale (EDSS) is the most common scoring system to evaluate the clinical neurological status of patients with Multiple Sclerosis (MS). This package is intended for calculation of the total EDSS score from functional subsystem scores. Calculations based on the Neurostatus adaptation of the scoring system (Kappos et al.): https://www.neurostatus.net/scoring/index.php 
+License: MIT Licence
+Encoding: UTF-8
+URL: https://github.com/jirimotyl/edss/ 
+BugReports: https://github.com/jirimotyl/edss/issues
+LazyData: true
+RoxygenNote: 7.3.2
