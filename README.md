@@ -22,6 +22,8 @@ install_github("jirimotyl/edss")
 <h3>Usage</h3>
 
 ```R
+library(EDSScalculator)
+
 edss_calculation(
   score_pyramidal,
   score_cerebellar,
