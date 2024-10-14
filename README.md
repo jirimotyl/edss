@@ -1,4 +1,4 @@
-<h1>EDSS Calculator for R</h1>
+<h1>EDSScalculator: EDSS Calculator for R</h1>
 
 R Package EDSScalculator that calculates total EDSS score from functional subsystem subscores 
 
@@ -13,6 +13,9 @@ You can install the package by using devtools library. Simply run this code:
 library(devtools) #make sure that the library is installed
 install_github("jirimotyl/edss")
 ```
+
+<h2>How to cite</h2>
+<li>Motyl, J. (2024) EDSScalculator. <i>GitHub</i> <a>https://github.com/jirimotyl/edss/</a></li>
 
 <h2>Acknowledgements</h2>
 I would like to thank <a>github.com/adobrasinovic</a> for the inspiration to write this script and for the clear overview of the EDSS conditions that made it much easier to write this package. Also I would like to thank AI tools for final debugging of the code.
