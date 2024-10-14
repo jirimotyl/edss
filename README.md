@@ -15,7 +15,7 @@ install_github("jirimotyl/edss")
 ```
 
 <h2>How to cite</h2>
-<li>Motyl, J. (2024) EDSScalculator. <i>GitHub</i> <a>https://github.com/jirimotyl/edss/</a></li>
+<li>Motyl, J. (2024) EDSScalculator. <i>GitHub</i> <a href = "https://github.com/jirimotyl/edss/">https://github.com/jirimotyl/edss</a></li>
 
 <h2>Acknowledgements</h2>
-I would like to thank <a>github.com/adobrasinovic</a> for the inspiration to write this script and for the clear overview of the EDSS conditions that made it much easier to write this package. Also I would like to thank AI tools for final debugging of the code.
+I would like to thank <a href = "https://github.com/adobrasinovic">Aleksandar Dobrašinovic</a> for the inspiration to write this script and for the clear overview of the EDSS conditions that made it much easier to write this package. Also I would like to thank AI tools for final debugging of the code.
