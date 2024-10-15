@@ -131,12 +131,12 @@ edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem
                score_ambulation %in% c(0, 1, 2)) {
       return(4.5)
       ## One to four FS scores = 3, one FS score = 4, others ≤ 4, Ambulation score = 0, 1, or 2
-    } else if (score_ambulation == 1) {
+    } else if (score_ambulation == 1 && all(subsystems <= 4)) {
       return(4)
-      ## Ambulation score = 1, EDSS = 4
-    } else if (score_ambulation == 2) {
+      ## Ambulation score = 1, no FS higher than 4, EDSS = 4
+    } else if (score_ambulation == 2 && all(subsystems <= 4)) {
       return(4.5)
-      ## Ambulation score = 2, EDSS = 4.5
+      ## Ambulation score = 2, no FS higher than 4, EDSS = 4.5
     } else if (score_ambulation == 3) {
       return(5)
       ## Ambulation score = 3, EDSS = 5
@@ -243,12 +243,12 @@ edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem
                score_ambulation %in% c(0, 1, 2)) {
       return(4.5)
       ## One to four FS scores = 3, one FS score = 4, others ≤ 4, Ambulation score = 0, 1, or 2
-    } else if (score_ambulation == 1) {
+    } else if (score_ambulation == 1 && all(subsystems <= 4)) {
       return(4)
-      ## Ambulation score = 1, EDSS = 4
-    } else if (score_ambulation == 2) {
+      ## Ambulation score = 1, no FS higher than 4, EDSS = 4
+    } else if (score_ambulation == 2 && all(subsystems <= 4)) {
       return(4.5)
-      ## Ambulation score = 2, EDSS = 4.5
+      ## Ambulation score = 2, no FS higher than 4, EDSS = 4.5
     } else if (score_ambulation == 3) {
       return(5)
       ## Ambulation score = 3, EDSS = 5
