@@ -8,16 +8,16 @@
 #' @param score_bowel_bladder Bowel and Bladder functional subsystem ranges 0 - 6
 #' @param score_visual Visual functional subsystem ranges 0 - 6
 #' @param score_mental Cerebral functional subsystem ranges 0 - 5
-#' @param score_ambulation Ambulation score that ranges 0 - 16 (for imed = F) or 0 - 13 (for imed = T)
-#' @param imed This parameter allows to choose whether to use original Neurostatus range 0 - 16 for ambulation score (default; imed = F). By setting imed = T you can use shortened version with range 0 - 13 in ambulation score. In this cace the original ambulation subscores of 5-7 and 8-9 are merged into scores 5 and 6 respectively.
+#' @param score_ambulation Ambulation score that ranges 0 - 16 (for neurostatus = T) or 0 - 13 (for neurostatus = F)
+#' @param neurostatus This parameter allows to choose whether to use original Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use shortened version with range 0 - 13 in ambulation score. In this case the original ambulation subscores of 5-7 and 8-9 are merged into scores 5 and 6 respectively; Ambulatory score of 1 leads automatically to EDSS = 4.
 #' @return EDSS total score (ranging between 0 and 10)
 #' @examples
 #' edss_total_01 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6)
-#' edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, imed = T)
+#' edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, neurostatus = F)
 #' @export
 
 edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem, score_sensory,
-                             score_bowel_bladder, score_visual, score_mental, score_ambulation, imed = F) {
+                             score_bowel_bladder, score_visual, score_mental, score_ambulation, neurostatus = T) {
 
   ## Create visual converted FS score
   if (score_visual == 0) {
@@ -82,7 +82,7 @@ edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem
     return(NA)
   }
 
-  if (imed == F) {
+  if (neurostatus == T) {
     ## EDSS calculation logic
     if (count_0 == 7 && score_ambulation == 0) {
       return(0)
@@ -186,7 +186,7 @@ edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem
       ## Default value - NA in error cases (cases that do not fit any condition)
     }
   }
-  else if (imed == T){
+  else if (neurostatus == F){
 
     ## EDSS calculation logic
     if (count_0 == 7 && score_ambulation == 0) {
@@ -198,31 +198,31 @@ edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem
     } else if (count_1 >= 2 && all(subsystems <= 1) && score_ambulation == 0) {
       return(1.5)
       ## Two or more FS scores = 1, all FS scores ≤ 1, Ambulation score = 0
-    } else if (count_2 == 1 && all(subsystems <= 2) && score_ambulation %in% c(0, 1)) {
+    } else if (count_2 == 1 && all(subsystems <= 2) && score_ambulation == 0) {
       return(2)
-      ## Exactly one FS score = 2, others ≤ 2, Ambulation score = 0 or 1
-    } else if (count_2 == 2 && all(subsystems <= 2) && score_ambulation %in% c(0, 1)) {
+      ## Exactly one FS score = 2, others ≤ 2, Ambulation score = 0
+    } else if (count_2 == 2 && all(subsystems <= 2) && score_ambulation == 0) {
       return(2.5)
-      ## Exactly two FS scores = 2, others ≤ 2, Ambulation score = 0 or 1
+      ## Exactly two FS scores = 2, others ≤ 2, Ambulation score = 0
     } else if (count_3 == 1 && count_2 == 0 && all(subsystems <= 3) &&
-               score_ambulation %in% c(0, 1)) {
+               score_ambulation == 0) {
       return(3)
-      ## Exactly one FS score = 3, no FS score = 2, others ≤ 3, Ambulation score = 0 or 1
+      ## Exactly one FS score = 3, no FS score = 2, others ≤ 3, Ambulation score = 0
     } else if (count_2 >= 3 && count_2 <= 4 && all(subsystems <= 2) &&
-               score_ambulation %in% c(0, 1)) {
+               score_ambulation == 0) {
       return(3)
-      ## Three or four FS scores = 2, others ≤ 2, Ambulation score = 0 or 1
+      ## Three or four FS scores = 2, others ≤ 2, Ambulation score = 0
     } else if (count_3 == 1 && count_2 >= 1 && count_2 <= 2 && all(subsystems <= 3) &&
-               score_ambulation %in% c(0, 1)) {
+               score_ambulation == 0) {
       return(3.5)
-      ## Exactly one FS score = 3, one or two FS scores = 2, others ≤ 3, Ambulation score = 0 or 1
+      ## Exactly one FS score = 3, one or two FS scores = 2, others ≤ 3, Ambulation score = 0
     } else if (count_3 == 2 && count_2 == 0 && all(subsystems <= 3) &&
-               score_ambulation %in% c(0, 1)) {
+               score_ambulation == 0) {
       return(3.5)
-      ## Exactly two FS scores = 3, no FS score = 2, others ≤ 3, Ambulation score = 0 or 1
-    } else if (count_2 == 5 && all(subsystems <= 2) && score_ambulation %in% c(0, 1)) {
+      ## Exactly two FS scores = 3, no FS score = 2, others ≤ 3, Ambulation score = 0
+    } else if (count_2 == 5 && all(subsystems <= 2) && score_ambulation == 0) {
       return(3.5)
-      ## Exactly five FS scores = 2, no FS higher than 2, Ambulation score = 0 or 1
+      ## Exactly five FS scores = 2, no FS higher than 2, Ambulation score = 0
     } else if (count_2 >= 6 && count_2 <= 7 && all(subsystems <= 2) &&
                score_ambulation %in% c(0, 1)) {
       return(4)
