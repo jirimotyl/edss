@@ -46,7 +46,7 @@ edss_calculation(
 <li>score_visual = Visual functional subsystem ranges 0 - 6</li>
 <li>score_mental = Cerebral functional subsystem ranges 0 - 5</li>
 <li>score_ambulation = Ambulation score that ranges 0 - 16 (for imed = F) or 0 - 13 (for imed = T)</li>
-<li>neurostatus = This parameter allows to choose whether to use Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use the original Kurtzke's scale with range 0 - 12(13) in ambulation score. In this cace the ambulation subscores of 5-7 and 8-9 from Neurostatus are merged into scores 5 and 6 respectively; Also ambulation score of 1 automatically leads to total EDSS = 4 as described by Kurtzke. This situation is handled differently in te case of Neurostatus.</li>
+<li>neurostatus = This parameter allows to choose whether to use Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use the original Kurtzke's scale with range 0 - 12(13) in ambulation score. In this case the ambulation subscores of 5-7 and 8-9 from Neurostatus are merged into scores 5 and 6 respectively; Also ambulation score of 1 automatically leads to total EDSS = 4, as described by Kurtzke. This situation is handled differently in te case of Neurostatus.</li>
 
 <h3>Value</h3>
 EDSS total score (ranging between 0 and 10)
