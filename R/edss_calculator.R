@@ -9,16 +9,17 @@
 #' @param score_visual Visual functional subsystem ranges 0 - 6
 #' @param score_mental Cerebral functional subsystem ranges 0 - 5
 #' @param score_ambulation Ambulation score that ranges 0 - 16 (for neurostatus = T) or 0 - 12(13) (for neurostatus = F)
-#' @param neurostatus This parameter allows to choose whether to use original Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use shortened version with range 0 - 13 in ambulation score. In this case the original ambulation subscores of 5-7 and 8-9 are merged into scores 5 and 6 respectively; Ambulatory score of 1 leads automatically to EDSS = 4.
+#' @param edss_methos This parameter allows to choose the method of EDSS calculation. There are three possible parameters: 1) "kurtzke" (default): The original procedure by Kurtzke; 2) "neurostatus_12" Neurostatus evaluation, in this case with 12(13) grades for ambulation scale; 3) "neurostatus_16" Same Neurostatus evaluation but in this case with 16 grades for ambulation scale.
 #' @return EDSS total score (ranging between 0 and 10)
 #' @examples
 #' edss_total_01 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6)
 #' edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_12")
 #' edss_total_03 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_16")
+#' edss_total_04 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "kurtzke")
 #' @export
 
 edss_calculation <- function(score_pyramidal, score_cerebellar, score_brain_stem, score_sensory,
-                             score_bowel_bladder, score_visual, score_mental, score_ambulation, edss_method) {
+                             score_bowel_bladder, score_visual, score_mental, score_ambulation, edss_method = "kurtzke") {
 
   ## Create visual converted FS score
   if (score_visual == 0) {
