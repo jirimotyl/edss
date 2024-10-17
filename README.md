@@ -2,7 +2,7 @@
 
 R Package EDSScalculator that calculates total EDSS score from functional subsystem subscores 
 
-Expanded Disability Status Scale (EDSS) is the most common scoring system to evaluate the clinical neurological status of patients with Multiple Sclerosis (MS). This package is intended for calculation of the total EDSS score from functional subsystem scores. Calculations are based both on the Neurostatus adaptation of the scoring system (Kappos et al.): https://www.neurostatus.net/scoring/index.php and on the original as proposed by John F. Kurtzke. You can choose which scoring to use.
+Expanded Disability Status Scale (EDSS) is the most common scoring system to evaluate the clinical neurological status of patients with Multiple Sclerosis (MS). This package is intended for calculation of the total EDSS score from functional subsystem scores. Calculations are based both on the Neurostatus adaptation of the scoring system (Kappos et al.): https://www.neurostatus.net/scoring/index.php, and on the original as proposed by John F. Kurtzke. You can choose which scoring to use. For Neurostatus it is possible to calculate total EDSS both for ambulation with 12(13) grades and also with 16 grades. 
 
 The functioning of the calculator was validated on a large dataset of almost 11000 unique real-life EDSS observations. Conditions that do not follow rigorous Neurostatus criteria but appear in the real-life data were incorporated.
 
@@ -16,7 +16,7 @@ install_github("jirimotyl/edss")
 ```
 
 <h2>How to cite</h2>
-<li>Motyl, J. (2024). EDSScalculator: EDSS Calculator for R. <i>GitHub</i>. <a href = "https://github.com/jirimotyl/edss/">https://github.com/jirimotyl/edss</a></li>
+<li>Motyl, J. (2024). EDSScalculator: EDSS Calculator for R (version 0.3.0) [R package]. <i>GitHub</i>. <a href = "https://github.com/jirimotyl/edss/">https://github.com/jirimotyl/edss</a></li>
 
 <h2>Description</h2>
 <h3>Usage</h3>
@@ -33,7 +33,7 @@ edss_calculation(
   score_visual,
   score_mental,
   score_ambulation,
-  neurostatus = T
+  edss_method = "kurtzke"
 )
 ```
 
@@ -46,7 +46,7 @@ edss_calculation(
 <li>score_visual = Visual functional subsystem ranges 0 - 6</li>
 <li>score_mental = Cerebral functional subsystem ranges 0 - 5</li>
 <li>score_ambulation = Ambulation score that ranges 0 - 16 (for imed = F) or 0 - 13 (for imed = T)</li>
-<li>neurostatus = This parameter allows to choose whether to use Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use the original Kurtzke's scale with range 0 - 12(13) in ambulation score. In this case the ambulation subscores of 5-7 and 8-9 from Neurostatus are merged into scores 5 and 6 respectively; Also ambulation score of 1 automatically leads to total EDSS = 4, as described by Kurtzke. This situation is handled differently in the case of Neurostatus.</li>
+<li>edss_method = This parameter allows to choose the method of EDSS calculation. There are three possible parameters: 1) "kurtzke" (default): The original procedure by Kurtzke; 2) "neurostatus_12" Neurostatus evaluation, in this case with 12(13) grades for ambulation scale; 3) "neurostatus_16" Same Neurostatus evaluation but in this case with 16 grades for ambulation scale.</li>
 
 <h3>Value</h3>
 EDSS total score (ranging between 0 and 10)
@@ -55,7 +55,9 @@ EDSS total score (ranging between 0 and 10)
 
 ```R
 edss_total_01 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6)
-edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, neurostatus = F)
+edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_12")
+edss_total_03 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_16")
+edss_total_04 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "kurtzke")
 ```
 
 <h2>Acknowledgements</h2>
