@@ -1,6 +1,6 @@
 Package: EDSScalculator
 Type: Package
-Title: EDSS Calculator that calculates total EDSS score from functional subsystem subscores 
+Title: EDSS Calculator for R 
 Version: 0.3.0
 Authors@R: 
   person("Jiri", "Motyl", email = "jiri.motyl@vfn.cz",  
