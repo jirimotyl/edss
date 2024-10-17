@@ -8,7 +8,7 @@
 #' @param score_bowel_bladder Bowel and Bladder functional subsystem ranges 0 - 6
 #' @param score_visual Visual functional subsystem ranges 0 - 6
 #' @param score_mental Cerebral functional subsystem ranges 0 - 5
-#' @param score_ambulation Ambulation score that ranges 0 - 16 (for neurostatus = T) or 0 - 12(13) (for neurostatus = F)
+#' @param score_ambulation Ambulation score that ranges 0 - 16 (for edss_method = "neurostatus_16") or 0 - 12(13) (for edss_method = "neurostatus_12" or "kurtzke")
 #' @param edss_methos This parameter allows to choose the method of EDSS calculation. There are three possible parameters: 1) "kurtzke" (default): The original procedure by Kurtzke; 2) "neurostatus_12" Neurostatus evaluation, in this case with 12(13) grades for ambulation scale; 3) "neurostatus_16" Same Neurostatus evaluation but in this case with 16 grades for ambulation scale.
 #' @return EDSS total score (ranging between 0 and 10)
 #' @examples
