@@ -2,7 +2,7 @@
 
 R Package EDSScalculator that calculates total EDSS score from functional subsystem subscores 
 
-Expanded Disability Status Scale (EDSS) is the most common scoring system to evaluate the clinical neurological status of patients with Multiple Sclerosis (MS). This package is intended for calculation of the total EDSS score from functional subsystem scores. Calculations are based both on the Neurostatus adaptation of the scoring system (Kappos et al.): https://www.neurostatus.net/scoring/index.php, and on the original as proposed by John F. Kurtzke. You can choose which scoring to use. For Neurostatus it is possible to calculate total EDSS both for ambulation with 12(13) grades and also with 16 grades. 
+Expanded Disability Status Scale (EDSS) is the most common scoring system to evaluate the clinical neurological status of patients with Multiple Sclerosis (MS). This package is intended for calculation of the total EDSS score from functional subsystem scores. Calculations are based both on the Neurostatus adaptation of the scoring system (Kappos et al.): https://www.neurostatus.net/scoring/index.php, and on the original as proposed by John F. Kurtzke. You can choose the scoring system you wish to apply. For Neurostatus it is possible to calculate total EDSS both for ambulation with 12(13) grades and also with 16 grades. 
 
 The functioning of the calculator was validated on a large dataset of almost 11000 unique real-life EDSS observations. Conditions that do not follow rigorous Neurostatus criteria but appear in the real-life data were incorporated.
 
