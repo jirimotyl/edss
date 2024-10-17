@@ -13,7 +13,7 @@ edss_calculation(
   score_visual,
   score_mental,
   score_ambulation,
-  neurostatus = T
+  edss_method = "kurtzke"
 )
 }
 \arguments{
@@ -33,7 +33,7 @@ edss_calculation(
 
 \item{score_ambulation}{Ambulation score that ranges 0 - 16 (for neurostatus = T) or 0 - 12(13) (for neurostatus = F)}
 
-\item{neurostatus}{This parameter allows to choose whether to use Neurostatus range 0 - 16 for ambulation score (default; neurostatus = T). By setting neurostatus = F you can use the original Kurtzke's scale with range 0 - 12(13) in ambulation score. In this cace the ambulation subscores of 5-7 and 8-9 from Neurostatus are merged into scores 5 and 6 respectively; Also ambulation score of 1 automatically leads to total EDSS = 4. This situation is also handled differently in te case of Neurostatus}
+\item{edss_methos}{This parameter allows to choose the method of EDSS calculation. There are three possible parameters: 1) "kurtzke" (default): The original procedure by Kurtzke; 2) "neurostatus_12" Neurostatus evaluation, in this case with 12(13) grades for ambulation scale; 3) "neurostatus_16" Same Neurostatus evaluation but in this case with 16 grades for ambulation scale.}
 }
 \value{
 EDSS total score (ranging between 0 and 10)
@@ -43,5 +43,7 @@ R Package for calculation of the total EDSS based on scores from functional subs
 }
 \examples{
 edss_total_01 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6)
-edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, neurostatus = F)
+edss_total_02 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_12")
+edss_total_03 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "neurostatus_16")
+edss_total_04 <- edss_calculation(3, 1, 2, 3, 2, 1, 1, 6, edss_method = "kurtzke")
 }
